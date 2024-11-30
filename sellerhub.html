@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<!-- Page name and link to css style page -->
+<head>
+    <title>Seller Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<!-- top-bar labels and links -->
+    <div class="top-bar">
+        <div>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+<!-- header for the seller-hub --> 
+    <div class="seller-hub">
+        <h1>My Listings</h1>
+<!-- display settings and labels for listing table --> 
+        <table class="listing-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Image</th>
+                    <th>Video</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Colour</th>
+                    <th>Type</th>
+                    <th>Year</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12345</td>
+                    <td><img src="https://example.com/path-to-your-image1.jpg" alt="Bookcase" class="listing-image"></td>
+                    <td>
+                        <video class="listing-video" controls>
+                            <source src="https://example.com/path-to-your-video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>Ikea</td>
+                    <td>Kallax</td>
+                    <td>White</td>
+                    <td>Bookcase</td>
+                    <td>2023</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12346</td>
+                    <td><img src="https://example.com/path-to-your-image1.jpg" alt="Bookcase" class="listing-image"></td>
+                    <td>
+                        <video class="listing-video" controls>
+                            <source src="https://example.com/path-to-your-video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </td>
+                    <td>John Lewis</td>
+                    <td>Unknown</td>
+                    <td>Black</td>
+                    <td>Bed Single</td>
+                    <td>2023</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+<!-- create add-listing buttons -->
+        <div class="add-listing">
+            <button class="add-listing-btn">Add New Listing</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
