@@ -22,7 +22,7 @@ jobs:
           docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/my-app:$GITHUB_SHA
 
       - name: Log in to GitHub Container Registry
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo ${{ secrets.GITHUB_SECRET }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/rapture1976/my-app:$GITHUB_SHA  # Replace 'your-username'
@@ -34,4 +34,4 @@ jobs:
       - name: Create a GitHub release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has appropriate permissions
+          GITHUB_TOKEN: ${{ secrets.BUILD_SECRET }}  # Ensure GITHUB_TOKEN has appropriate permissions
