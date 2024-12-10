@@ -19,7 +19,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t my-app:$GITHUB_SHA .
-          docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/my-app:$GITHUB_SHA  # Replace 'your-username'
+          docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/my-app:$GITHUB_SHA
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
