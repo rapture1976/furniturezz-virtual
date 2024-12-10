@@ -19,13 +19,13 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t my-app:$GITHUB_SHA .
-          docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/my-app:$GITHUB_SHA
+          docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/furniturezz_virtual:$GITHUB_SHA
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_SECRET }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/rapture1976/my-app:$GITHUB_SHA  # Replace 'your-username'
+        run: docker push ghcr.io/rapture1976/furniturezz_virtual:$GITHUB_SHA  # Replace 'your-username'
 
   release:
     runs-on: ubuntu-latest
