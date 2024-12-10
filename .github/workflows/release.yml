@@ -3,12 +3,12 @@ name: Build and Release
 
 on:
   push:
-    tags:
-      - 'v*'  # Trigger the workflow when a new tag starting with 'v' is pushed
-  workflow_dispatch: 
+    branches:
+      - main  # Trigger workflow on pushes to the main branch
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,20 +19,31 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t my-app:$GITHUB_SHA .
-          docker tag my-app:$GITHUB_SHA ghcr.io/rapture1976/furniturezz_virtual:$GITHUB_SHA
+          docker build -t my-app:${{ github.sha }} .
+          docker tag my-app:${{ github.sha }} ghcr.io/rapture1976/my-app:${{ github.sha }}
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.CR_PAT }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/rapture1976/furniturezz_virtual:$GITHUB_SHA  # Replace 'your-username'
+        run: docker push ghcr.io/rapture1976/my-app:${{ github.sha }}
 
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+      - name: Create a tag
+        id: create_tag
+        run: |
+          VERSION=v1.$(date +'%Y%m%d%H%M%S')  # Create a timestamped tag
+          echo "Generated tag: $VERSION"
+          echo "tag=$VERSION" >> $GITHUB_ENV  # Export the tag for use in later steps
+
+      - name: Push tag
+        uses: pfrank/auto-tag-action@v1  # Automatically creates and pushes the tag
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.tag }}
+
       - name: Create a GitHub release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.CR_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.tag }}
