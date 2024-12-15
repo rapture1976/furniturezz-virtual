@@ -12,79 +12,25 @@ class ComposerStaticInitfbee484fbcb98ba45566f17e8eb69e9b
     );
 
     public static $prefixLengthsPsr4 = array (
-        'p' => 
-        array (
-            'phpDocumentor\\Reflection\\' => 25,
-        ),
-        'W' => 
-        array (
-            'Webmozart\\Assert\\' => 17,
-        ),
         'P' => 
         array (
-            'Psr\\Cache\\' => 10,
-            'Prophecy\\' => 9,
             'PhpParser\\' => 10,
-            'PHPStan\\PhpDocParser\\' => 21,
         ),
         'D' => 
         array (
-            'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Instantiator\\' => 22,
-            'Doctrine\\Deprecations\\' => 22,
-            'Doctrine\\Common\\Collections\\' => 28,
-            'Doctrine\\Common\\' => 16,
             'DeepCopy\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpDocumentor\\Reflection\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'Webmozart\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/assert/src',
-        ),
-        'Psr\\Cache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/cache/src',
-        ),
-        'Prophecy\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
-        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'PHPStan\\PhpDocParser\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
-        ),
-        'Doctrine\\Persistence\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/persistence/src/Persistence',
-        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
-        ),
-        'Doctrine\\Deprecations\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
-        ),
-        'Doctrine\\Common\\Collections\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
-        ),
-        'Doctrine\\Common\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/doctrine/common/src',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
         'DeepCopy\\' => 
         array (
