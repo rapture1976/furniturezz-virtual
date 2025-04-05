@@ -1,19 +1,15 @@
+ HEAD
+
 /* !general settings! */
 
-/* settings for main body of pages*/
 body {
-    font-family: Arial, sans-serif;
-    margin: 0; 
-    padding: 0;
-    height: auto; 
-    color: black;
-    text-align: left;
     background-image: url('background.png');
-    background-size: cover; 
-    background-position: center; 
+    background-size: cover;
     background-repeat: no-repeat;
-    background-color: #f5f5f5;
-} 
+    background-attachment: fixed;
+    background-position: center;
+}
+
 /* settings for top bar */
 .top-bar {
     position: fixed;
@@ -24,14 +20,9 @@ body {
     background-color: #8fbc8f;
     padding: 0.3%; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    height:4%;
+    height: 4%;
 }
 
-/* type of boxes and distance between each */
-.top-bar div {
-    display: fixed; 
-    gap: 50%;
-} 
 /* setting for each box on the top bar */
 a {
     margin-right: 0.3%;
@@ -40,11 +31,16 @@ a {
     padding: 1%; 
     border-radius: 3.125%; 
     transition: background-color 0.3s ease; 
+    display: inline-block; /* Make it behave like a button */
+    cursor: pointer;
+    background-color: #8fbc8f;
 }
-/* hover colour for top bar*/
+
+/* hover color for top bar links */
 a:hover {
-    background-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(0, 0, 0, 0.2);
 }
+
 /* size and position of logo */
 .logo {
     width: 30%; 
@@ -52,7 +48,23 @@ a:hover {
     align-self: center; 
 }
 
+form button.logout-btn {
+    display: inline-block;  /* Ensure the button is inline */
+    color: white;           /* White text color */
+    padding: 1%;     /* Padding for size */
+    border-radius: 5px;     /* Rounded corners */
+    cursor: pointer;       /* Pointer cursor on hover */
+    border: none;           /* Remove default border */
+    background-color: #8fbc8f;
+}
+
+form button.logout-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Hover effect */
+}
+
+
 /* !home page settings! */
+
 
 /* type, colour and size of box for login section */
 .login-container {
@@ -200,6 +212,337 @@ h2 {
 .registration-form .registration-subtext {
     font-size: 100%;
 }  
+.password-requirements {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* !account dashboard page settings! */
+
+/* type, colour and size of button */
+.dashboard-btn {
+    display: inline-block;
+    padding: 1% 1.5%;
+    background-color: #454545;
+    color: white;
+    text-decoration: none;
+    border-radius: 1%;
+    font-size: 100%;
+    transition: background-color 0.3s ease;
+}
+/* colour of button when you hover */
+.dashboard-btn:hover {
+    background-color: #8fbc8f;
+}
+/* alignment of button box */
+.dashboard-button-container {
+    text-align: center;
+    margin-top: 10px;
+}
+/* text size of header 3 */
+h3 {
+    margin: 2%; 
+    font-size: 100%;
+    margin: 2%;
+}
+
+/* !sellerhub page settings! */
+
+/* size and colour of page */
+.seller-hub {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* size of listing table */
+.listing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+/* settings for listing table */
+.listing-table th, .listing-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+/* colour of listing table header */
+.listing-table th {
+    background-color: #8fbc8f;
+}
+/* colour of listing table */
+.listing-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/* size of image */
+.listing-image {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+/* type pf box used to display actions */
+.listing-actions {
+    display: flex;
+    gap: 10px;
+}
+/* home page settings */
+.listing-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* background colour and text colour of edit button*/
+.edit-btn {
+    background-color: #8fbc8f;
+    color: white;
+}
+/* background colour and text colour of delete button*/
+.delete-btn {
+    background-color: #ff4500;
+    color: white;
+}
+/* text alignment */
+.add-listing {
+    text-align: center;
+}
+/* settings for the add listing button */
+.add-listing-btn {
+    width: 50%;
+    padding: 10px;
+    background-color: #454545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* colour when you hover over button */
+.add-listing-btn:hover {
+    background-color: #8fbc8f;
+}
+
+/* !general settings! */
+
+body {
+    background-image: url('background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* settings for top bar */
+.top-bar {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #8fbc8f;
+    padding: 0.3%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 4%;
+}
+
+/* setting for each box on the top bar */
+a {
+    margin-right: 0.3%;
+    color: white;
+    text-decoration: none; 
+    padding: 1%; 
+    border-radius: 3.125%; 
+    transition: background-color 0.3s ease; 
+    display: inline-block; /* Make it behave like a button */
+    cursor: pointer;
+    background-color: #8fbc8f;
+}
+
+/* hover color for top bar links */
+a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* size and position of logo */
+.logo {
+    width: 30%; 
+    height: auto; 
+    align-self: center; 
+}
+
+form button.logout-btn {
+    display: inline-block;  /* Ensure the button is inline */
+    color: white;           /* White text color */
+    padding: 1%;     /* Padding for size */
+    border-radius: 5px;     /* Rounded corners */
+    cursor: pointer;       /* Pointer cursor on hover */
+    border: none;           /* Remove default border */
+    background-color: #8fbc8f;
+}
+
+form button.logout-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Hover effect */
+}
+
+
+/* !home page settings! */
+
+
+/* type, colour and size of box for login section */
+.login-container {
+    display: flex;
+    width: 80%; 
+    max-width: 1200px;
+    margin: 1.25% auto; 
+    padding: 1.25%; 
+    background-color: #8fbc8f; 
+    border-radius: 0.625%; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+/* alignment and font colour of text content in the login box */
+.login-content {
+    flex: 1; 
+    margin-right: 0.078%; 
+    color: #454545; 
+}
+/* size and position of logo */
+.logo-login-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+/* position and size settings for form*/
+.login-form {
+    position: absolute;
+    bottom: 40%; 
+    left: 60%;
+    transform: translateX(-50%);
+    width: 40%;
+    background-color: #8fbc8f;
+    padding: 1%;
+    border-radius: 0.625%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+/* settings for header */
+.login-form h2 {
+    margin-bottom: 0.9%;
+    font-size: 1.1%;
+    color: #333;
+}
+/* settings for the form text input boxes */
+.login-form input {
+    width: 80%;
+    padding: 1.5%;
+    margin-bottom: 1.1%;
+    border: 1px solid #ccc;
+    border-radius: 0.625%;
+}
+/* size and colour of the button  */
+.login-form button {
+    width: 50%;
+    padding: 1%;
+    background-color: #454545;
+    color: white;
+    border: none;
+    border-radius: 0.5%;
+    cursor: pointer;
+    font-size: 100%;
+}
+/* colour when you hover over button */
+.login-form button:hover {
+    background-color: #454545;
+}
+
+/* !about page settings! */
+
+/* header1 and paragraph settings*/
+h1, p {
+    margin: 0.8%; 
+    font-size: 200%;
+    margin: 5%;   
+}
+/* header 2 text size */
+h2 {
+    font-size: 90%;
+}
+
+/* developer info box size and colours */
+.developer-info {
+    margin: 3%; 
+    color: black; 
+    text-align: left; 
+    background-color: #8fbc8f; 
+    border-radius: 0.625%; 
+    width: 80%; 
+    max-width: 1200px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+/* developer info text size */
+.developer-info p {
+    font-size: 80%; 
+    line-height : 1.2;
+    margin: 0; 
+}
+
+/* !registration & new listing page settings! */
+
+/* size and colour of button */
+.registration-form button[type="submit"]{
+    width: 50%;
+    padding: 2%;
+    background-color: #454545;
+    color: white;
+    border: none;
+    border-radius: 1%;
+    cursor: pointer;
+    font-size: 100%;
+}
+/* size and colour of box */
+.registration-container {
+    max-width: 600px;
+    margin: 1.25% auto;
+    padding: 1.25%;
+    background-color: #f9f9f9;
+    border-radius: 1%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* type and alignment of boxes for the form */
+.registration-form .form-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2%;
+}
+/* size and alignment of form labels */
+.registration-form .form-group label {
+    width: 200px;
+    text-align: right;
+    padding-right: 1%;
+}
+/* Type, size and colour of form text inputs */
+.registration-form .form-group input,
+.registration-form .form-group select {
+    flex: 1;
+    padding: 1.25%;
+    font-size: 100%;
+    border: 1px solid #ccc;
+    border-radius: 1%;
+}
+/* font size for sub-text */
+.registration-form .registration-subtext {
+    font-size: 100%;
+}  
+.password-requirements {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
 
 /* !account dashboard page settings! */
 
@@ -311,4 +654,4 @@ h3 {
 
 
 
-
+ 16c4078 (Initial commit with website files)

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<!-- Page title and link to css style page -->
+<head>
+    <title>Furniturezz New Listing</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body class="registration-page">
+    <!-- top-bar labels and links -->
+    <div class="top-bar">
+        <div>
+            <a href="sellerhub.php">Seller Hub</a>
+            <a href="marketplace.html">Marketplace</a>
+            
+            <!-- Logout button -->
+            <form action="logout.php" method="POST" style="display:inline;">
+                <input type="hidden" name="logout" value="1">
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </div>
+    </div>
+    <!-- static settings for new listing form re-using the class used for registration  -->
+    <div class="registration-container">
+        <div class="registration-form">
+            <h1 class="registration-header">Create Your Listing</h1>
+
+            <form action="submit_listing.php" method="POST">
+                <div class="form-group">
+                    <label for="furniture_make">Manufacturer:</label>
+                    <input type="text" id="furniture_make" name="furniture_make" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="furniture_model">Model:</label>
+                    <input type="text" id="furniture_model" name="furniture_model" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="furniture_colour">Colour:</label>
+                    <select id="furniture_colour" name="furniture_colour" required>
+                        <option value="" disabled selected>Select your colour</option>
+                        <option value="Black">Black</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Green">Green</option>
+                        <option value="Pink">Pink</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Red">Red</option>
+                        <option value="Wood_Dark">Wood Dark</option>
+                        <option value="Wood_Light">Wood Light</option>
+                        <option value="White">White</option>
+                        <option value="Yellow">Yellow</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="room_type">Room:</label>
+                    <select id="room_type" name="room_type" required>
+                        <option value="" disabled selected>Select the room</option>
+                        <option value="Bedroom">Bedroom</option>
+                        <option value="Living Room">Living Room</option>
+                        <option value="Dining Room">Dining Room</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Garden">Garden</option>
+                    </select>   
+                </div>
+
+                <div class="form-group">
+                    <label for="furniture_type">Furniture Type:</label>
+                    <select id="furniture_type" name="furniture_type" required>
+                        <option value="" disabled selected>Select your furniture</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year of Manufacture:</label>
+                    <input type="text" id="year" name="year" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="video_url">Video Link:</label>
+                    <input type="url" id="video_url" name="video_url">
+                </div>
+
+                <div class="form-group">
+                    <label for="image_url">Image Link:</label>
+                    <input type="url" id="image_url" name="image_url">
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- dynamic settings for new listing form to filter furniture by room type  -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Handle the change event for room_type
+            document.getElementById('room_type').addEventListener('change', function () {
+                var room = this.value;
+                var furnitureSelect = document.getElementById('furniture_type');
+                // Clear previous options
+                furnitureSelect.innerHTML = ''; 
+
+                // Filter furniture options based on selected room
+                var furnitureOptions = {
+                    "Bedroom": [
+                        { value: "Bed Double", text: "Bed Double" },
+                        { value: "Bed Single", text: "Bed Single" },
+                        { value: "Bed King-size", text: "Bed King-size" },
+                        { value: "Wardrobe", text: "Wardrobe" },
+                        { value: "Chest of Drawers", text: "Chest of Drawers" },
+                        { value: "Bedside Table", text: "Bedside Table" }
+                    ],
+                    "Living Room": [
+                        { value: "Sofa", text: "Sofa" },
+                        { value: "Bookcase", text: "Bookcase" },
+                        { value: "TV Cabinet", text: "TV Cabinet" },
+                        { value: "Chair", text: "Chair" },
+                        { value: "Coffee Table", text: "Coffee Table" },
+                        { value: "Side Table", text: "Side Table" }
+                    ],
+                    "Dining Room": [
+                        { value: "Dining Table", text: "Dining Table" },
+                        { value: "Dining Chair(s)", text: "Dining Chair(s)" }
+                    ],
+                    "Kitchen": [
+                        { value: "Kitchen Cabinets", text: "Kitchen Cabinets" },
+                        { value: "Kitchen Sink", text: "Kitchen Sink" }
+                    ],
+                    "Bathroom": [
+                        { value: "Bathroom Cabinet", text: "Bathroom Cabinet" },
+                        { value: "Bath", text: "Bath" },
+                        { value: "Toilet", text: "Toilet" },
+                        { value: "Hand basin", text: "Hand Basin" }
+                    ],
+                    "Garden": [
+                        { value: "Garden Dining Set", text: "Garden Dining Set" },
+                        { value: "Lounger", text: "Lounger" },
+                        { value: "Parasol", text: "Parasol" },
+                        { value: "Garden Table", text: "Garden Table" },
+                        { value: "Garden Chair(s)", text: "Garden Chair(s)" }
+                    ]
+                };
+
+                // Add options based on the selected room
+                if (room in furnitureOptions) {
+                    furnitureOptions[room].forEach(function (option) {
+                        var opt = document.createElement('option');
+                        opt.value = option.value;
+                        opt.text = option.text;
+                        furnitureSelect.add(opt);
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
